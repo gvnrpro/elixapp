@@ -1,8 +1,4 @@
-import React from 'react';
-
-// ...existing code from your original Dashboard.tsx...
-
-export function Dashboard({ onAssetSelect }: DashboardProps) {
+export function Dashboard({ onAssetSelect }: { onAssetSelect: any }) {
   return (
     <section>
       <h2>Dashboard</h2>

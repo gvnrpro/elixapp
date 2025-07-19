@@ -2,11 +2,11 @@ import React, { createContext, useContext } from 'react';
 
 const AuthContext = createContext(null);
 
-export function AuthProvider({ children }: { children: React.ReactNode }) {
+export function AuthProvider({ children }: { children: any }) {
   return (
-    <AuthContext.Provider value={{}}>
+    <div>
       {children}
-    </AuthContext.Provider>
+    </div>
   );
 }
 

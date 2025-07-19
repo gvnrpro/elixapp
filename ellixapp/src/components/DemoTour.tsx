@@ -1,6 +1,4 @@
-import React from 'react';
-
-export function DemoTour({ onViewChange, onAssetSelect }) {
+export function DemoTour({ onViewChange, onAssetSelect }: { onViewChange: any; onAssetSelect: any }) {
   return (
     <div>
       <span>Demo Tour</span>

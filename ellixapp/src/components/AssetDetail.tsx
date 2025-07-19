@@ -1,6 +1,4 @@
-import React from 'react';
-
-export function AssetDetail({ asset, onBack }) {
+export function AssetDetail({ asset, onBack }: { asset: any; onBack: any }) {
   return (
     <div>
       <h2>Asset Detail</h2>
