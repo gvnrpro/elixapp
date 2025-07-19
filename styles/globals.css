@@ -1,0 +1,395 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  /* SF Pro-inspired font sizing */
+  --font-size: 14px;
+  --text-caption-2: 11px;
+  --text-caption-1: 12px;
+  --text-footnote: 13px;
+  --text-subheadline: 15px;
+  --text-callout: 16px;
+  --text-body: 17px;
+  --text-headline: 17px;
+  --text-title-3: 20px;
+  --text-title-2: 22px;
+  --text-title-1: 28px;
+  --text-large-title: 34px;
+
+  /* Elix Brand Gradient - Our Light Source */
+  --elix-gradient: linear-gradient(135deg, #2D6A6B 0%, #40E0D0 100%);
+  --elix-glow: 0 0 20px rgba(64, 224, 208, 0.4);
+  --elix-glow-strong: 0 0 30px rgba(64, 224, 208, 0.6);
+  --elix-glow-intense: 0 0 40px rgba(64, 224, 208, 0.8);
+  
+  /* VisionOS Color System */
+  --background: radial-gradient(ellipse at center, #0a0a0b 0%, #000000 100%);
+  --foreground: rgba(255, 255, 255, 0.95);
+  
+  /* Glass Materials */
+  --glass-primary: rgba(255, 255, 255, 0.1);
+  --glass-secondary: rgba(255, 255, 255, 0.05);
+  --glass-tertiary: rgba(255, 255, 255, 0.03);
+  --glass-border: rgba(255, 255, 255, 0.15);
+  --glass-shadow: rgba(0, 0, 0, 0.3);
+  
+  /* Spatial Shadows */
+  --shadow-float-1: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-float-2: 0 16px 64px rgba(0, 0, 0, 0.16), 0 4px 16px rgba(0, 0, 0, 0.12);
+  --shadow-float-3: 0 24px 96px rgba(0, 0, 0, 0.20), 0 8px 32px rgba(0, 0, 0, 0.16);
+  --shadow-canvas: 0 32px 128px rgba(0, 0, 0, 0.24), 0 16px 64px rgba(0, 0, 0, 0.20);
+  
+  /* Advanced Blur Effects */
+  --blur-light: blur(8px);
+  --blur-medium: blur(16px);
+  --blur-heavy: blur(24px);
+  --blur-intense: blur(32px);
+  
+  /* Interactive States */
+  --hover-glow: 0 0 24px rgba(64, 224, 208, 0.3);
+  --active-glow: 0 0 32px rgba(64, 224, 208, 0.5);
+  --focus-glow: 0 0 40px rgba(64, 224, 208, 0.7);
+  
+  /* Status Colors with Glow */
+  --success: #30d158;
+  --success-glow: 0 0 16px rgba(48, 209, 88, 0.4);
+  --warning: #ff9f0a;
+  --warning-glow: 0 0 16px rgba(255, 159, 10, 0.4);
+  --destructive: #ff453a;
+  --destructive-glow: 0 0 16px rgba(255, 69, 58, 0.4);
+  --primary: #0a84ff;
+  --primary-glow: 0 0 16px rgba(10, 132, 255, 0.4);
+  
+  /* Typography */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Spatial Radius */
+  --radius-xs: 8px;
+  --radius-sm: 12px;
+  --radius-md: 16px;
+  --radius-lg: 20px;
+  --radius-xl: 24px;
+  --radius-2xl: 32px;
+  --radius-spatial: 28px;
+}
+
+.dark {
+  /* Dark mode overrides maintain the same spatial principles */
+  --glass-primary: rgba(255, 255, 255, 0.08);
+  --glass-secondary: rgba(255, 255, 255, 0.04);
+  --glass-tertiary: rgba(255, 255, 255, 0.02);
+  --glass-border: rgba(255, 255, 255, 0.12);
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-glass-primary: var(--glass-primary);
+  --color-glass-secondary: var(--glass-secondary);
+  --color-glass-tertiary: var(--glass-tertiary);
+  --color-glass-border: var(--glass-border);
+  --color-success: var(--success);
+  --color-warning: var(--warning);
+  --color-destructive: var(--destructive);
+  --color-primary: var(--primary);
+  --radius-xs: var(--radius-xs);
+  --radius-sm: var(--radius-sm);
+  --radius-md: var(--radius-md);
+  --radius-lg: var(--radius-lg);
+  --radius-xl: var(--radius-xl);
+  --radius-2xl: var(--radius-2xl);
+  --radius-spatial: var(--radius-spatial);
+}
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    font-size: var(--font-size);
+    overflow: hidden;
+  }
+
+  body {
+    background: var(--background);
+    color: var(--foreground);
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    height: 100vh;
+    width: 100vw;
+  }
+
+  #root {
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+  }
+}
+
+/* VisionOS Typography System */
+@layer base {
+  .sf-large-title {
+    font-size: var(--text-large-title);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.2;
+    letter-spacing: -0.025em;
+    color: var(--foreground);
+  }
+
+  .sf-title-1 {
+    font-size: var(--text-title-1);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.3;
+    letter-spacing: -0.02em;
+    color: var(--foreground);
+  }
+
+  .sf-title-2 {
+    font-size: var(--text-title-2);
+    font-weight: var(--font-weight-bold);
+    line-height: 1.3;
+    letter-spacing: -0.015em;
+    color: var(--foreground);
+  }
+
+  .sf-title-3 {
+    font-size: var(--text-title-3);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.3;
+    letter-spacing: -0.01em;
+    color: var(--foreground);
+  }
+
+  .sf-headline {
+    font-size: var(--text-headline);
+    font-weight: var(--font-weight-semibold);
+    line-height: 1.4;
+    letter-spacing: -0.005em;
+    color: var(--foreground);
+  }
+
+  .sf-body {
+    font-size: var(--text-body);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .sf-callout {
+    font-size: var(--text-callout);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.8);
+  }
+
+  .sf-subheadline {
+    font-size: var(--text-subheadline);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .sf-footnote {
+    font-size: var(--text-footnote);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.4;
+    color: rgba(255, 255, 255, 0.6);
+  }
+
+  .sf-caption-1 {
+    font-size: var(--text-caption-1);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.5);
+  }
+
+  .sf-caption-2 {
+    font-size: var(--text-caption-2);
+    font-weight: var(--font-weight-regular);
+    line-height: 1.3;
+    color: rgba(255, 255, 255, 0.5);
+  }
+}
+
+/* VisionOS Glass Materials */
+@layer utilities {
+  .glass-canvas {
+    background: var(--glass-primary);
+    backdrop-filter: var(--blur-medium);
+    -webkit-backdrop-filter: var(--blur-medium);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-spatial);
+    box-shadow: var(--shadow-canvas);
+  }
+
+  .glass-puck {
+    background: var(--glass-secondary);
+    backdrop-filter: var(--blur-light);
+    -webkit-backdrop-filter: var(--blur-light);
+    border: 1px solid var(--glass-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-float-2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-puck:hover {
+    background: rgba(255, 255, 255, 0.08);
+    box-shadow: var(--shadow-float-3), var(--hover-glow);
+    transform: translateY(-2px);
+  }
+
+  .glass-pill {
+    background: var(--glass-primary);
+    backdrop-filter: var(--blur-medium);
+    -webkit-backdrop-filter: var(--blur-medium);
+    border: 1px solid var(--glass-border);
+    border-radius: 100px;
+    box-shadow: var(--shadow-float-1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .glass-pill:hover {
+    background: rgba(255, 255, 255, 0.12);
+    box-shadow: var(--shadow-float-2), var(--hover-glow);
+    transform: translateY(-1px);
+  }
+
+  .glass-pill.active {
+    background: var(--elix-gradient);
+    box-shadow: var(--shadow-float-2), var(--elix-glow);
+    border: 1px solid rgba(64, 224, 208, 0.3);
+  }
+
+  .elix-glow {
+    box-shadow: var(--elix-glow);
+  }
+
+  .elix-glow-strong {
+    box-shadow: var(--elix-glow-strong);
+  }
+
+  .elix-glow-intense {
+    box-shadow: var(--elix-glow-intense);
+  }
+
+  .floating-layer-1 {
+    transform: translateZ(8px);
+    box-shadow: var(--shadow-float-1);
+  }
+
+  .floating-layer-2 {
+    transform: translateZ(16px);
+    box-shadow: var(--shadow-float-2);
+  }
+
+  .floating-layer-3 {
+    transform: translateZ(24px);
+    box-shadow: var(--shadow-float-3);
+  }
+
+  .spatial-text {
+    text-shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  .illuminated-text {
+    background: var(--elix-gradient);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+    filter: drop-shadow(0 0 8px rgba(64, 224, 208, 0.5));
+  }
+
+  /* Status Indicators with Glow */
+  .status-success {
+    background: var(--success);
+    box-shadow: var(--success-glow);
+  }
+
+  .status-warning {
+    background: var(--warning);
+    box-shadow: var(--warning-glow);
+  }
+
+  .status-destructive {
+    background: var(--destructive);
+    box-shadow: var(--destructive-glow);
+  }
+
+  .status-primary {
+    background: var(--primary);
+    box-shadow: var(--primary-glow);
+  }
+
+  /* Interactive Elements */
+  .interactive-element {
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  }
+
+  .interactive-element:hover {
+    transform: translateY(-2px) scale(1.02);
+  }
+
+  .interactive-element:active {
+    transform: translateY(0) scale(0.98);
+  }
+
+  /* Spatial Animations */
+  @keyframes float {
+    0%, 100% { transform: translateY(0px); }
+    50% { transform: translateY(-4px); }
+  }
+
+  @keyframes pulse-glow {
+    0%, 100% { box-shadow: var(--elix-glow); }
+    50% { box-shadow: var(--elix-glow-strong); }
+  }
+
+  @keyframes illuminate {
+    0% { opacity: 0; filter: blur(10px); }
+    100% { opacity: 1; filter: blur(0px); }
+  }
+
+  .animate-float {
+    animation: float 6s ease-in-out infinite;
+  }
+
+  .animate-pulse-glow {
+    animation: pulse-glow 3s ease-in-out infinite;
+  }
+
+  .animate-illuminate {
+    animation: illuminate 0.8s cubic-bezier(0.4, 0, 0.2, 1) forwards;
+  }
+}
+
+/* Custom Scrollbars for Spatial Interface */
+@layer utilities {
+  .spatial-scroll::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .spatial-scroll::-webkit-scrollbar-track {
+    background: rgba(255, 255, 255, 0.05);
+    border-radius: 100px;
+  }
+
+  .spatial-scroll::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 100px;
+    backdrop-filter: var(--blur-light);
+  }
+
+  .spatial-scroll::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.3);
+  }
+}
